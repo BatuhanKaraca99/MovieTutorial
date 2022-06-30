@@ -2,6 +2,7 @@
 namespace MovieTutorial.Web.MovieDB {
 
     @Serenity.Decorators.registerClass()
+    @Serenity.Decorators.responsive()    
     export class PersonDialog extends Serenity.EntityDialog<PersonRow, any> {
         protected getFormKey() { return PersonForm.formKey; }
         protected getIdProperty() { return PersonRow.idProperty; }
@@ -13,6 +14,17 @@ namespace MovieTutorial.Web.MovieDB {
         protected getUpdatePermission() { return PersonRow.updatePermission; }
 
         protected form = new PersonForm(this.idPrefix);
+
+        private moviesGrid: PersonMovieGrid;
+
+        constructor() {
+            super();
+
+            this.moviesGrid = new PersonMovieGrid(this.byId("MoviesGrid"));
+            this.tabs.on('tabsactivate', (e, i) => {
+                this.arrange();
+            });
+        }
 
         protected getTemplate() {
             return `<div id="~_Tabs" class="s-DialogContent">
@@ -38,6 +50,11 @@ namespace MovieTutorial.Web.MovieDB {
                 </div>
             </div>`;
 
+        }
+
+        protected afterLoadEntity() {
+            super.afterLoadEntity();
+            this.moviesGrid.personID = this.entityId;
         }
     }
 }
