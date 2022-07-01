@@ -1219,7 +1219,10 @@ declare namespace MovieTutorial.Web.MovieDB {
         protected getInsertPermission(): string;
         protected getUpdatePermission(): string;
         protected form: PersonForm;
+        private moviesGrid;
+        constructor();
         protected getTemplate(): string;
+        protected afterLoadEntity(): void;
     }
 }
 declare namespace MovieTutorial.Web.MovieDB {
@@ -1240,5 +1243,12 @@ declare namespace MovieTutorial.Web.MovieDB {
         protected getLocalTextPrefix(): string;
         protected getService(): string;
         constructor(container: JQuery);
+        protected getButtons(): any;
+        protected getInitialTitle(): any;
+        protected usePager(): boolean;
+        protected getGridCanLoad(): boolean;
+        private _personID;
+        get personID(): number;
+        set personID(value: number);
     }
 }

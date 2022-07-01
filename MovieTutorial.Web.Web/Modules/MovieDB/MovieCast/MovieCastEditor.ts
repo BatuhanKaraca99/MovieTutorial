@@ -19,7 +19,7 @@ namespace MovieTutorial.Web.MovieDB {
         protected validateEntity(row: MovieCastRow, id: number) {
             if (!super.validateEntity(row, id))
                 return false;
-            row.PersonFirstName = PersonRow.getLookup()
+            row.PersonFullname = PersonRow.getLookup()
                 .itemById[row.PersonId].Fullname;
             return true;
         }
