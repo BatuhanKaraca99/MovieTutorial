@@ -28,9 +28,9 @@ namespace MovieTutorial.Web.MovieDB
             set => fields.MovieId[this] = value;
         }
 
-        [DisplayName("Actor/Actress"), NotNull, ForeignKey("[mov].[Person]", "PersonId")]
-        [LeftJoin("jPerson"), TextualField("PersonFirstName")]
-        [LookupEditor(typeof(PersonRow))]
+        [DisplayName("Actor/Actress"), NotNull, ForeignKey("[mov].[Person]", "PersonId")] 
+            [LeftJoin("jPerson"), TextualField("PersonFirstName")]
+            [LookupEditor(typeof(PersonRow))]
         public int? PersonId
         {
             get => fields.PersonId[this];
@@ -106,14 +106,15 @@ namespace MovieTutorial.Web.MovieDB
             get => fields.PersonLastname[this];
             set => fields.PersonLastname[this] = value;
         }
-
+        
         [DisplayName("Actor/Actress"),
-            Expression("(jPerson.Firstname + ' ' + jPerson.Lastname)")]
+        Expression("(jPerson.Firstname + ' ' + jPerson.Lastname)")]
         public String PersonFullname
         {
             get => fields.PersonFullname[this];
             set => fields.PersonFullname[this] = value;
         }
+
         [DisplayName("Person Birthdate"), Expression("jPerson.[Birthdate]")]
         public DateTime? PersonBirthdate
         {

@@ -1,4 +1,5 @@
 using FluentMigrator;
+using System;
 
 namespace MovieTutorial.Web.Migrations.DefaultDB
 {
@@ -12,7 +13,7 @@ namespace MovieTutorial.Web.Migrations.DefaultDB
                     .PrimaryKey().NotNullable()
                 .WithColumn("FirstName").AsString(50).NotNullable()
                 .WithColumn("Lastname").AsString(50).NotNullable()
-                .WithColumn("Birthdate").AsDateTime().Nullable()
+                .WithColumn("BirthDate").AsDateTime().Nullable()
                 .WithColumn("BirthPlace").AsString(100).Nullable()
                 .WithColumn("Gender").AsInt32().Nullable()
                 .WithColumn("Height").AsInt32().Nullable();

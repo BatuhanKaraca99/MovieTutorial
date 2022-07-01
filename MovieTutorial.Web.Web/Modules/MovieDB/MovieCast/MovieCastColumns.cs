@@ -5,7 +5,6 @@ using System;
 using System.ComponentModel;
 using System.Collections.Generic;
 using System.IO;
-using Serenity.Extensions.Entities;
 
 namespace MovieTutorial.Web.MovieDB.Columns
 {
@@ -16,6 +15,6 @@ namespace MovieTutorial.Web.MovieDB.Columns
         [EditLink, Width(220)]
         public String PersonFullname { get; set; }
         [EditLink, Width(150)]
-        public string Character { get; set; }
+        public String Character { get; set; }
     }
 }

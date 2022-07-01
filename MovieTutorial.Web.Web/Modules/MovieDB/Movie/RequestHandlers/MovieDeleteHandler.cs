@@ -14,7 +14,8 @@ namespace MovieTutorial.Web.MovieDB
     public class MovieDeleteHandler : DeleteRequestHandler<MyRow, MyRequest, MyResponse>, IMovieDeleteHandler
     {
         public IMovieCastDeleteHandler MovieCastDeleteHandler { get; }
-        public MovieDeleteHandler(IRequestContext context)
+        public MovieDeleteHandler(IRequestContext context,
+            IMovieCastDeleteHandler movieCastDeleteHandler)
              : base(context)
         {
         }

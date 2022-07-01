@@ -2,7 +2,8 @@
 namespace MovieTutorial.Web.MovieDB {
 
     @Serenity.Decorators.registerEditor()
-    export class MovieCastEditor extends Serenity.Extensions.GridEditorBase<MovieCastRow> {
+    export class MovieCastEditor
+        extends Serenity.Extensions.GridEditorBase<MovieCastRow> {
         protected getColumnsKey() { return "MovieDB.MovieCast"; }
         protected getDialogType() { return MovieCastEditDialog; }
         protected getLocalTextPrefix() { return MovieCastRow.localTextPrefix; }
@@ -18,10 +19,8 @@ namespace MovieTutorial.Web.MovieDB {
         protected validateEntity(row: MovieCastRow, id: number) {
             if (!super.validateEntity(row, id))
                 return false;
-
-            row.PersonFullname = PersonRow.getLookup()
+            row.PersonFirstName = PersonRow.getLookup()
                 .itemById[row.PersonId].Fullname;
-
             return true;
         }
     }

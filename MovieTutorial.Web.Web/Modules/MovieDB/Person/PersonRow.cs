@@ -23,21 +23,21 @@ namespace MovieTutorial.Web.MovieDB
         }
 
         [DisplayName("First Name"), Size(50), NotNull]
-        public String FirstName
+        public string FirstName
         {
             get => fields.FirstName[this];
             set => fields.FirstName[this] = value;
         }
 
         [DisplayName("Lastname"), Size(50), NotNull]
-        public String Lastname
+        public string Lastname
         {
             get => fields.Lastname[this];
             set => fields.Lastname[this] = value;
         }
 
         [DisplayName("Full Name"),
-            Expression("(t0.FirstName + ' ' + t0.Lastname)"),QuickSearch,NameProperty]
+            Expression("(t0.FirstName + ' '+t0.Lastname)"),QuickSearch,NameProperty]
         public String Fullname
         {
             get => fields.Fullname[this];
@@ -62,7 +62,7 @@ namespace MovieTutorial.Web.MovieDB
         public Gender? Gender
         {
             get => (Gender?)fields.Gender[this];
-            set => fields.Gender[this] = (Int32)value;
+            set => fields.Gender[this] = (Int32?)value;
         }
 
         [DisplayName("Height")]

@@ -1,25 +1,17 @@
-﻿using Serenity;
-using Serenity.ComponentModel;
-using Serenity.Data;
+﻿using Serenity.ComponentModel;
 using System;
-using System.ComponentModel;
-using System.Collections.Generic;
-using System.IO;
 
 namespace MovieTutorial.Web.MovieDB.Columns
 {
-    [ColumnsScript("MovieDB.Person")]
-    [BasedOnRow(typeof(PersonRow), CheckNames = true)]
-    public class PersonColumns
+    [ColumnsScript("MovieDB.PersonMovie")]
+    [BasedOnRow(typeof(MovieCastRow))]
+    public class PersonMovieColumns
     {
-        [EditLink, DisplayName("Db.Shared.RecordId"), AlignRight]
-        public int PersonId { get; set; }
-        [EditLink]
-        public string FirstName { get; set; }
-        public string Lastname { get; set; }
-        public DateTime Birthdate { get; set; }
-        public string BirthPlace { get; set; }
-        public int Gender { get; set; }
-        public int Height { get; set; }
+        [Width(220)]
+        public String MovieTitle { get; set; }
+        [Width(100)]
+        public Int32 MovieYear { get; set; }
+        [Width(200)]
+        public String Character { get; set; }
     }
 }

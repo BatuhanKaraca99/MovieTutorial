@@ -79,7 +79,7 @@ namespace MovieTutorial.Web.MovieDB
             get => fields.GenreList[this];
             set => fields.GenreList[this] = value;
         }
-        [MasterDetailRelation(foreignKey: "MovieId",IncludeColumns = "PersonalFullname")]
+        [MasterDetailRelation(foreignKey: "MovieId",IncludeColumns = "PersonFullname")]
         [DisplayName("Cast List"),NotMapped]
         public List<MovieCastRow> CastList
         {
